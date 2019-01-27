@@ -14,6 +14,9 @@
             <v-tab>
                 Crazy Award
             </v-tab>
+
+            <v-btn href="/hot-crazy-csharp.pdf" color="primary"><v-icon>mdi-download</v-icon> Slides</v-btn>
+            <v-btn href="/hot-crazy-csharp.mp4" color="purple" dark><v-icon>mdi-video</v-icon> Video</v-btn>
     </v-tabs>
     
     <v-tabs-items v-model="tab">
