@@ -38,26 +38,26 @@ export default class App extends Vue  {
   @MapGetter({ namespace: 'vote' })
   public unsafeVotes!: IVote[];
 
-  public mounted(): void {
-    if (this.votes.length >= this.questions.length && this.unsafeVotes.length === 0) {
-      this.$router.push({ name: 'summary' });
-    } else if (this.votes.length >= this.questions.length && this.unsafeVotes.length > 0) {
-      let maxId: number = 1;
-      this.unsafeVotes.forEach((v: IVote) => {
-        if (maxId < v.questionId) {
-          maxId = v.questionId;
-        }
-      });
-      this.$router.push({ name: 'question', params: { id: maxId.toString() } });
-    } else if (this.votes.length > 0) {
-      let maxId: number = 1;
-      this.votes.forEach((v: IVote) => {
-        if (maxId < v.questionId) {
-          maxId = v.questionId;
-        }
-      });
-      this.$router.push({ name: 'question', params: { id: (maxId + 1).toString() } });
-    }
-  }
+  // public mounted(): void {
+  //   if (this.votes.length >= this.questions.length && this.unsafeVotes.length === 0) {
+  //     this.$router.push({ name: 'summary' });
+  //   } else if (this.votes.length >= this.questions.length && this.unsafeVotes.length > 0) {
+  //     let maxId: number = 1;
+  //     this.unsafeVotes.forEach((v: IVote) => {
+  //       if (maxId < v.questionId) {
+  //         maxId = v.questionId;
+  //       }
+  //     });
+  //     this.$router.push({ name: 'question', params: { id: maxId.toString() } });
+  //   } else if (this.votes.length > 0) {
+  //     let maxId: number = 1;
+  //     this.votes.forEach((v: IVote) => {
+  //       if (maxId < v.questionId) {
+  //         maxId = v.questionId;
+  //       }
+  //     });
+  //     this.$router.push({ name: 'question', params: { id: (maxId + 1).toString() } });
+  //   }
+  // }
 }
 </script>

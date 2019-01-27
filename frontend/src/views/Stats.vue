@@ -18,7 +18,7 @@
     
     <v-tabs-items v-model="tab">
         <v-tab-item>    
-             <v-layout>
+             <!-- <v-layout>
                 <v-btn   
                     absolute
                     dark
@@ -37,7 +37,7 @@
                     color="error">
                     <v-icon @click="cleanDatabase">mdi-delete</v-icon>
                 </v-btn>
-            </v-layout>
+            </v-layout> -->
                 <v-layout
                     row
                     wrap>

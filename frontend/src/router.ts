@@ -11,22 +11,22 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
-    },
-    {
-      path: '/question/:id',
-      name: 'question',
-      component: () => import(/* webpackChunkName: "question" */ './views/Question.vue')
-    },
-    {
-      path: '/summary',
-      name: 'summary',
-      component: () => import(/* webpackChunkName: "summary" */ './views/Summary.vue')
-    },
-    {
-      path: '/stats',
-      name: 'stats',
       component: () => import(/* webpackChunkName: "stats" */ './views/Stats.vue')
-    }
+    }// ,
+    // {
+    //   path: '/question/:id',
+    //   name: 'question',
+    //   component: () => import(/* webpackChunkName: "question" */ './views/Question.vue')
+    // },
+    // {
+    //   path: '/summary',
+    //   name: 'summary',
+    //   component: () => import(/* webpackChunkName: "summary" */ './views/Summary.vue')
+    // },
+    // {
+    //   path: '/stats',
+    //   name: 'stats',
+    //   component: () => import(/* webpackChunkName: "stats" */ './views/Stats.vue')
+    // }
   ]
 });
