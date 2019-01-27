@@ -45,6 +45,11 @@
                             <QuestionsChart :data="questionsData" />
                         </v-flex>
                 </v-layout>
+                <v-layout row>
+                    <v-flex xs12>
+                        <VickyMendozaChart :data="vickyMendozaData" />
+                    </v-flex>
+                </v-layout>
                 <v-layout
                     row
                     wrap>
@@ -107,6 +112,7 @@
 <script lang="ts">
 import { Vue, Component, MapGetter, MapAction } from 'types-vue';
 import QuestionsChart from '@/components/QuestionsChart.vue';
+import VickyMendozaChart from '@/components/VickyMendozaChart.vue';
 import ColumnsChart from '@/components/ColumnsChart.vue';
 import VoteService from '@/services/vote.service';
 import { IUserVote, IQuestion } from '@/models';
@@ -116,6 +122,7 @@ const service = new VoteService();
 @Component({
     components: {
         QuestionsChart,
+        VickyMendozaChart,
         ColumnsChart
     }
 })
@@ -156,6 +163,20 @@ export default class Stats extends Vue {
             result[i][0] = (result[i][0] as number) / counter[i];
             result[i][1] = (result[i][1] as number) / counter[i];
         }
+
+        return result;
+    }
+
+    public get vickyMendozaData(): Array<Array<(string | number)>> {
+        const result: Array<Array<(string | number)>> = [
+            ['Feature', 'Value', 'style']
+        ];
+
+        this.questionsData.forEach((v, index) => {
+            if (index === 0) { return; }
+            const value = (v[1] as number) - (v[0] as number);
+            result.push([v[2], value, value === 0 ? 'gray' : value > 0 ? 'green' : 'red' ]);
+        });
 
         return result;
     }
@@ -246,6 +267,8 @@ export default class Stats extends Vue {
         let max: number = 0;
         let names: string[] = [];
         for (let i = 1; i < this.peopleUsefullData.length; i++) {
+            if (this.peopleCrazyData[i][0] as string === '@dagope'
+                || this.peopleCrazyData[i][0] as string === '@fernandoescolar') { continue; }
             if (max === this.peopleUsefullData[i][1]) {
                  names.push(this.peopleUsefullData[i][0] as string);
             } else if (max < this.peopleUsefullData[i][1]) {
@@ -261,6 +284,8 @@ export default class Stats extends Vue {
         let max: number = 0;
         let names: string[] = [];
         for (let i = 1; i < this.peopleCrazyData.length; i++) {
+            if (this.peopleCrazyData[i][0] as string === '@dagope'
+                || this.peopleCrazyData[i][0] as string === '@fernandoescolar') { continue; }
             if (max === this.peopleCrazyData[i][1]) {
                  names.push(this.peopleCrazyData[i][0] as string);
             } else if (max < this.peopleCrazyData[i][1]) {

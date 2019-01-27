@@ -14,7 +14,8 @@ const Questions: IQuestion[] = [
     { id: 4, text: 'Recursive patterns'},
     { id: 5, text: 'Switch expressions'},
     { id: 6, text: 'Implicit constructors'},
-    { id: 7, text: 'Default Interfaces'}
+    { id: 7, text: 'Using declaration'},
+    { id: 8, text: 'Default Interfaces'}
 ];
 
 @Module({ namespaced: true })

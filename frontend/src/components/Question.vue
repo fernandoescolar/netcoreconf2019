@@ -35,7 +35,7 @@
                     </v-rating>
                 </v-flex>
                 <v-flex xs12 class="margin-top-20">
-                    <v-btn color="primary" @click="next">Vote</v-btn>
+                    <v-btn color="primary" @click="next" :loading="loading">Vote</v-btn>
                 </v-flex>
         </v-layout>
     </v-container>
@@ -55,6 +55,8 @@
     public crazy: number = 0;
 
     public alreadyExists: boolean = false;
+
+    public loading: boolean = false;
 
     public get currentQuestion(): IQuestion | undefined {
         return this.questions.find((q: IQuestion) => q.id === this.questionId);
@@ -91,6 +93,7 @@
     }
 
     public async next(): Promise<void> {
+        this.loading = true;
         const vote: IVote = {
             questionId: this.questionId,
             usefull: this.hot * 2,
@@ -98,7 +101,8 @@
         };
 
         await this.addVote(vote);
-
+        this.loading = false;
+        
         if (this.questionId === this.questions.length - 1) {
             this.$router.push({ name: 'summary' });
         } else {
