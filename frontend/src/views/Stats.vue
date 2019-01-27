@@ -15,8 +15,9 @@
                 Crazy Award
             </v-tab>
 
-            <v-btn href="/hot-crazy-csharp.pdf" color="primary"><v-icon>mdi-download</v-icon> Slides</v-btn>
-            <v-btn href="/hot-crazy-csharp.mp4" color="purple" dark><v-icon>mdi-video</v-icon> Video</v-btn>
+            <v-btn href="/hot-crazy-csharp.pdf" target="_blank" color="primary"><v-icon>mdi-download</v-icon> Slides</v-btn>
+            <v-btn href="/hot-crazy-csharp.mp4" target="_blank" color="purple" dark><v-icon>mdi-video</v-icon> Video</v-btn>
+            <v-btn href="https://github.com/fernandoescolar/netcoreconf2019" target="_blank" dark><v-icon>mdi-code-braces</v-icon> Code</v-btn>
     </v-tabs>
     
     <v-tabs-items v-model="tab">
