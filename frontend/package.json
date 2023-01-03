@@ -23,7 +23,7 @@
     "@vue/cli-plugin-babel": "^3.3.0",
     "@vue/cli-plugin-pwa": "^3.3.0",
     "@vue/cli-plugin-typescript": "^3.3.0",
-    "@vue/cli-service": "^3.3.0",
+    "@vue/cli-service": "^5.0.8",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.0.1",
     "tslint": "^5.12.1",
